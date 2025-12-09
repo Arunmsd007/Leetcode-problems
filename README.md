@@ -1,4 +1,36 @@
+Special Triplets Solution
+Problem Statement
+Find the count of special triplets in an array where a triplet (i, j, k) is considered special if:
 
+i < j < k (indices are in strictly increasing order)
+nums[i] + nums[k] = 2 * nums[j] (the middle element is the arithmetic mean of the first and third)
+
+Solution Approach
+This solution uses a three-pointer sliding window technique with hash maps to efficiently count valid triplets.
+Algorithm Overview
+The key insight is to iterate through each element as the middle element nums[j], while maintaining:
+
+Left Counter: Elements that have appeared before position j
+Right Counter: Elements that will appear after position j
+
+For each middle element x, we look for pairs where:
+
+Left element = 2*x
+Right element = 2*x
+
+This ensures: 2*x + 2*x = 2 * (2*x) which simplifies to the arithmetic mean property.
+Step-by-Step Process
+
+Initialize: Count all elements in the right counter
+Iterate: For each element at position j:
+
+Remove it from right (it's no longer "to the right")
+Check if 2*x exists in both left and right
+Count valid triplets: left[2*x] * right[2*x]
+Add current element to left counter
+
+
+Return: Total count modulo 10^9 + 7
 Complexity Analysis
 
 Time Complexity: O(n)
