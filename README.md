@@ -1,11 +1,13 @@
-Special Triplets Solution
-Problem Statement
+Special Triplets Solution:
+
+Problem Statement:
+
 Find the count of special triplets in an array where a triplet (i, j, k) is considered special if:
 
 i < j < k (indices are in strictly increasing order)
 nums[i] + nums[k] = 2 * nums[j] (the middle element is the arithmetic mean of the first and third)
 
-Solution Approach
+Solution Approach:
 This solution uses a three-pointer sliding window technique with hash maps to efficiently count valid triplets.
 Algorithm Overview
 The key insight is to iterate through each element as the middle element nums[j], while maintaining:
@@ -45,8 +47,8 @@ Two hash maps storing at most n unique elements
 
 
 
-Examples
-Example 1
+Examples:
+Example 1:
 pythonnums = [1, 2, 3, 4]
 Valid triplet: (1, 2, 3) where 1 + 3 = 2 * 2
 Output: 1
@@ -58,7 +60,7 @@ Valid triplets:
 - (2, 4, 6): indices (4, 1, 2)
 - (2, 4, 6): indices (4, 3, 2)
 Output: 4
-Usage
+Usage:
 pythonsolution = Solution()
 result = solution.specialTriplets([1, 2, 3, 4])
 print(result)  # Output: 1
@@ -68,7 +70,7 @@ Arithmetic Mean Property: The condition nums[i] + nums[k] = 2 * nums[j] means nu
 Efficient Counting: By fixing the middle element and using counters, we avoid nested loops (which would be O(n³))
 Modulo Operation: Results are returned modulo 10^9 + 7 to handle large counts
 
-Edge Cases
+Edge Cases:
 
 Empty array: Returns 0
 Array with fewer than 3 elements: Returns 0
